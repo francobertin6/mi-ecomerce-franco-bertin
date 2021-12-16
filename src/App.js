@@ -1,12 +1,19 @@
 
 // import NavBar
 
-import NavBar from "./Components/NavBar/NavBar.js";
+import NavBar from "./Components/NavBar/NavBar";
 
+// import Main
+
+import Main from "./Components/Main/Main";
 
 const App = () => {
     return(
-        <NavBar />
+        <>
+            <NavBar />
+            <Main />
+        </>
+       
     )
 }
 

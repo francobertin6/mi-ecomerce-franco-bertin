@@ -15,7 +15,9 @@ const NavBar = () => {
     return(
         <section id="NavBar">
             <div className="div1">
-               <Icon src = {Icon_src} /> 
+               <Icon src = {Icon_src}>
+                    <h1>Mi-Ecomerce</h1>
+               </Icon>
                <Search />
                <div className="paragraphs_container">
                    <h3>loren ipsum</h3>

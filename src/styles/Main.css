@@ -1,0 +1,58 @@
+
+#conteiner_main{
+    width: 100vw;
+    height: 100vh;
+
+    position: relative;
+    top: 2.5vh;
+    left: 0;
+}
+
+#conteiner_main .main_title{
+    width: 25vw;
+    height: max-content;
+
+    position: absolute;
+    left: 15vw;
+    top: 5vh;
+
+    font-size: 18px;
+}
+
+
+/* componente icon para el carrito de las compras */
+
+#conteiner_main .icon_img{
+    width: fit-content;
+    height: fit-content;
+
+    position: absolute;
+    left: 95%;
+    top: 5%;
+}
+
+#conteiner_main .icon_img img{
+    width: 1.5vw;
+    height: 1.5vw;
+}
+
+#conteiner_main .icon_img div{
+    position: relative;
+    left: -2.5vw;
+    top: -3.5vh;
+
+    width: 2vw;
+    height: 3vh;
+
+    background-color: rgb(56, 56, 247);
+    border-radius: 25%;
+}
+
+#conteiner_main .icon_img div p{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+
+    transform: translate(-50%, -50%);
+    color: white;
+}
