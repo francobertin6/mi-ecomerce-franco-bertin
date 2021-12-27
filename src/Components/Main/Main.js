@@ -11,9 +11,7 @@ import shoppingCart from "./images/carrito-de-compras.png"
 
 import ItemListContainer from "./ItemListContainer/ItemListContainer"
 
-// import ItemCount
 
-import ItemCount from "./ItemCount/ItemCount";
 
 
 const Main = () => {
@@ -26,11 +24,6 @@ const Main = () => {
                 <div><p>0</p></div>
             </Icon>
 
-            <ItemCount 
-                name = "Ejercicio contador con boton"
-                stock={9}
-                initial={0}
-            />
 
         </main>
     )

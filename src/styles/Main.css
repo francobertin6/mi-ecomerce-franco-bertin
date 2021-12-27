@@ -83,3 +83,95 @@
     margin-top: 0.5rem;
     margin-bottom: 0.5rem;
 }
+
+/* componente Item.js */
+
+.item_div{
+    width: 25vw;
+    height: 45vh;
+
+    position: relative;
+
+    border: 2px solid black;
+}
+
+/* titulo de cada item */
+
+.item_div .title{
+    width: 25vw;
+    height: 5vh;
+
+    border-bottom: 2px solid black;
+    text-align: center;
+}
+
+.item_div .title h6{
+    position: relative;
+    top: 50%;
+    transform: translate(0 , -50%);
+
+    font-size: 18px;
+}
+
+/* imagen de los items */
+
+.item_div img{
+    width: 25vw;
+    height: 25vh;
+}
+
+/* descripcion y boton de item */
+
+.item_div .description{
+    width: 25vw;
+    height: 10vh;
+
+    text-align: center;
+}
+
+.item_div .description p{
+    position: relative;
+    top: 5%;
+    font-size: 15px;
+}
+
+.item_div .description button{
+    position: relative;
+    top: 30%;
+
+    width: 12vw;
+    height: 4vh;
+}
+
+/* precio de item */
+
+.item_div .price{
+    width: 25vw;
+    height: 4vh;
+
+    border-top: 2px solid black;
+
+}
+
+.item_div .price p{
+    position: relative;
+    top: 50%;
+    left: 80%;
+
+    font-size: 18px;
+}
+
+/* container de items */
+
+#item_container{
+    position: relative;
+    top: 15%;
+
+    width: 100vw;
+    height: max-content;
+
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: space-around;
+
+}
