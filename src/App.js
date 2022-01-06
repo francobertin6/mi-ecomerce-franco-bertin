@@ -1,3 +1,6 @@
+// import react-router
+
+import { BrowserRouter} from "react-router-dom";
 
 // import NavBar
 
@@ -9,10 +12,10 @@ import Main from "./Components/Main/Main";
 
 const App = () => {
     return(
-        <>
+        <BrowserRouter>
             <NavBar />
             <Main />
-        </>
+        </BrowserRouter>
        
     )
 }

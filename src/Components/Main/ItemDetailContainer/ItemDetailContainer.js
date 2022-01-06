@@ -1,16 +1,18 @@
 // import react
-import { useEffect } from "react";
-import { useState } from "react/cjs/react.development";
+import { useEffect, useState } from "react";
+
+// import react-router
+import { useParams } from "react-router-dom";
 
 // import ItemDetail
-import ItemDetail from "./ItemDetail/ItemDetail";
+import ItemDetail from "./ItemDetail/ItemDetail.js";
 
 // import itemJson
-
 import itemJson from "./items.json";
 
+console.log(itemJson)
 
-const ItemDetailContainer = ({id_number}) => {
+const ItemDetailContainer = () => {
 
     const GetItem = () => {
         return new Promise ((res, rej) => {
@@ -18,20 +20,25 @@ const ItemDetailContainer = ({id_number}) => {
         })
     }
 
-    const [ItemDetail, setItemDetail] = useState([]);
+    const [ItemDetails, setItemDetails] = useState({});
+    let {id} = useParams();
 
     useEffect( ()=>{
         
         setTimeout( () => {
             GetItem().then((res) => {
-                setItemDetail(res.items[id_number]);
+                console.log(Number(id))
+                console.log(res.items)
+                setItemDetails(res.items[Number(id)]);
             })
         }, 2000)
-    })
+    }, [id])
 
     return(
         <>
-            <ItemDetail item = {ItemDetail}/>
+            <ItemDetail item = {ItemDetails}/>
         </>
     )
 }
+
+export default ItemDetailContainer;

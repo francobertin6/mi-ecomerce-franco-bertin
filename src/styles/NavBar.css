@@ -8,12 +8,14 @@
     position: relative;
     top: 0;
     width: 100vw;
-    height: 15vh;
+    height: fit-content;
 
     
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+
+   box-shadow: 0 0 4px 0; 
 }
 
 /* estilos del div de arriba */
@@ -149,10 +151,11 @@
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    flex-wrap: wrap;
 }
 
 #NavBar .div2 li{
-    width: 17vw;
+    width: 16.5vw;
     height: 5vh;
 
     text-align: center;

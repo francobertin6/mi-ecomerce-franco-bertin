@@ -28,12 +28,12 @@ const NavBar = () => {
             </div>
             <div className="div2">
                 
-                <Category  name = "categoria1"/>
-                <Category  name = "categoria2"/>
-                <Category  name = "categoria3"/>
-                <Category  name = "categoria4"/>
-                <Category  name = "categoria5"/>
-                <Category  name = "categoria6"/>
+                <Category  name = "Grafica y diseño"/>
+                <Category  name = "Programacion"/>
+                <Category  name = "Video y animacion"/>
+                <Category  name = "Musica y audio"/>
+                <Category  name = "Negocios"/>
+                <Category  name = "Escritura"/>
                 
             </div>
         </section>
