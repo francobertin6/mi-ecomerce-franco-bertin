@@ -11,9 +11,15 @@ import like2 from './images/like2.png'
 
 
 
-const Item = ({items}) => {
+const Item = ({items, category_value}) => {
 
-    const {id, pictureUrl, user, title, user_stars, price } = items;
+    const {id, pictureUrl, user, title, user_stars, price, category } = items;
+
+    const give_category_to_parent = () => {
+        category_value(category)
+    }
+
+    give_category_to_parent();
 
     return(
     

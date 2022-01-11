@@ -19,6 +19,10 @@ import ItemListContainer from "./ItemListContainer/ItemListContainer"
 
 import ItemDetailContainer from "./ItemDetailContainer/ItemDetailContainer.js"
 
+// import Cart
+import Cart from "./Cart/Cart";
+
+
 
 
 
@@ -32,8 +36,9 @@ const Main = () => {
 
             <Routes>
                 <Route path= "/item/:id" element= {<ItemDetailContainer />} />
-                <Route path= "/:category" element={<ItemListContainer greeting="productos"/>}/>
-                <Route path= "/" element = {<ItemListContainer greeting = "Mis productos"/>}/>
+                <Route path= "/:category" element={<ItemListContainer />}/>
+                <Route path= "/" element = {<ItemListContainer />}/>
+                <Route path= "/cart" element = {<Cart />}/>
             </Routes>
 
         </main>
