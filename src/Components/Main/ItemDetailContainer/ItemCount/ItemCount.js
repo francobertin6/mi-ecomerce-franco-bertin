@@ -1,12 +1,17 @@
-// import react
-import { useState } from "react";
+// import react/contexto
+import { useState, useContext } from "react";
+import { My_Context } from "../../../../context/My_context";
 
 // import react-router
 
 import { Link } from "react-router-dom";
 
 
-const ItemCount = ({name, stock, initial, onAdd}) => {
+const ItemCount = ({name, stock, initial, onAdd, notification, id}) => {
+
+    const contexto = useContext(My_Context);
+
+    const { Duplicated_item } = contexto;
 
     const [number, setNumber] = useState(initial);
 
@@ -30,9 +35,18 @@ const ItemCount = ({name, stock, initial, onAdd}) => {
 
         onAdd(number);
 
+        if(Duplicated_item === true){
+            notification(true)
+        }else{
+            notification(false)
+        }
+
     }
 
+    console.log(Duplicated_item)
+
     return(
+
         <div id="Count_container">
 
             <h6>{name}</h6>
@@ -41,12 +55,13 @@ const ItemCount = ({name, stock, initial, onAdd}) => {
                 <input type="number" min={0} max={stock} id="ItemCount_input" value={number}/>
                     <img src="/add_black_24dp.svg" onClick={Add_one} alt="max" className="max"/>
             </div>
-
-            <Link to={"/cart"}>
+            
+            <Link to={Duplicated_item ? "/item/" + id : "/cart"}>
                 <button id="Buy" onClick={Handle_buy}>Comprar</button>
             </Link>
 
         </div>
+    
     )
 }
 

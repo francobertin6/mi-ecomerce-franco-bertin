@@ -10,7 +10,7 @@ import ItemDetail from "./ItemDetail/ItemDetail.js";
 // import itemJson
 import itemJson from "./items.json";
 
-console.log(itemJson)
+// console.log(itemJson)
 
 const ItemDetailContainer = () => {
 
@@ -29,14 +29,14 @@ const ItemDetailContainer = () => {
             GetItem().then((res) => {
                 console.log(Number(id))
                 console.log(res.items)
-                setItemDetails(res.items[Number(id)]);
+                setItemDetails(res.items[Number(id) - 1]);
             })
         }, 2000)
     }, [id])
 
     return(
         <>
-            <ItemDetail item = {ItemDetails}/>
+            <ItemDetail item = {ItemDetails} id={id}/>
         </>
     )
 }

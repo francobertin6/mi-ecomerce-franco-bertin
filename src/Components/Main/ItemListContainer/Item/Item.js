@@ -2,6 +2,10 @@
 // import react-router
 import { Link } from 'react-router-dom'
 
+// import context
+import { useContext } from 'react'
+import { My_Context } from '../../../../context/My_context'
+
 // import img star
 import stars from './images/estrella.png'
 
@@ -13,6 +17,10 @@ import like2 from './images/like2.png'
 
 const Item = ({items, category_value}) => {
 
+    const contexto = useContext(My_Context);
+
+    const { isInCart } = contexto
+
     const {id, pictureUrl, user, title, user_stars, price, category } = items;
 
     const give_category_to_parent = () => {
@@ -21,8 +29,12 @@ const Item = ({items, category_value}) => {
 
     give_category_to_parent();
 
+    const Handle_title = () => {
+        isInCart(id);
+    }
+
     return(
-    
+        
          <div id={id} className="item_div">
             
             <div className="user">
@@ -35,7 +47,7 @@ const Item = ({items, category_value}) => {
             <img src={pictureUrl} alt="imagen"/>
 
             <div className="title">
-                <Link to={"/item/" + id}>
+                <Link to={"/item/" + id} onClick={Handle_title}>
                     <h6>{title}</h6>
                 </Link>
             </div>
@@ -56,7 +68,7 @@ const Item = ({items, category_value}) => {
             </div>
 
         </div>
-        
+
     )
 
 }

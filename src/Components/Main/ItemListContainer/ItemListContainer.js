@@ -1,6 +1,7 @@
 
-// import react 
-import { useEffect, useState } from 'react';
+// import react/context
+import { useEffect, useState, useContext } from 'react';
+import { My_Context } from '../../../context/My_context';
 
 // import react-router
 import { useParams } from 'react-router-dom';
@@ -13,8 +14,11 @@ import itemsJson from './items.json'
 
 
 
-
 const ItemListContainer = ({greeting}) => {
+
+    const contexto = useContext(My_Context);
+
+    const {Categories} = contexto;
     
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -39,9 +43,10 @@ const ItemListContainer = ({greeting}) => {
 
             ItemsPromise.then((res) => {
                 const {items} = res
-                    /* se borraran 5 productos y se trasladaran a un nuevo array */ 
-                for (let index = 0; index < items.length; index++) {
-                        NewArray.push(items.splice(0,5));
+                    /* filtra el array entre las categorias */ 
+                for (let index = 0; index < Categories.length; index++) {
+                        let elemento_category = Categories[index]
+                        NewArray.push(items.filter( element => element.category === elemento_category));
                     }
                 })
                 /* ese array se pusheara en el estado products */ 
