@@ -1,8 +1,4 @@
 
-// import icon
-import Icon from "./icon/Icon"
-import Icon_src from './icon/atomic-structure.png'
-
 // import category
 import Category from "./category/Category"
 
@@ -15,9 +11,10 @@ const NavBar = () => {
     return(
         <section id="NavBar">
             <div className="div1">
-               <Icon src = {Icon_src}>
-                    <h1>Mi-Ecomerce</h1>
-               </Icon>
+                <div className="icon_img">
+                    <img src="images/atomic-structure.png" alt="imagen"/>
+                    <h1>Mi E-commerce</h1>
+                </div>
                <Search />
                <div className="paragraphs_container">
                    <h3>loren ipsum</h3>

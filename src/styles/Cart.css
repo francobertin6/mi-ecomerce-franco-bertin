@@ -35,12 +35,18 @@
 
 #Cart_Container .titles h3{
     position: relative;
-    top: 60%;
+    top: 40%;
     left: 2%;
+
+    transform: translate(-50%);
 
     margin-left: 5%;
 
     font-size: 21px;
+}
+
+#Cart_Container .titles h3:hover{
+    text-decoration: underline;
 }
 
 #Cart_Container .titles button{

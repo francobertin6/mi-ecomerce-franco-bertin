@@ -30,7 +30,7 @@ const ItemDetail = ({item, id}) => {
 
     const Notifications = (value) => {
         if(value === true){
-            toast("este item ya ha sido añadido a carrito");
+            toast.warn("este item ya ha sido añadido a carrito");
         }else{
             return null
         }
@@ -41,7 +41,7 @@ const ItemDetail = ({item, id}) => {
 
             <ToastContainer
             position="top-right"
-            autoClose={5000}
+            autoClose={2000}
             hideProgressBar={false}
             newestOnTop={false}
             closeOnClick

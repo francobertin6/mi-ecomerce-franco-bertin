@@ -12,6 +12,9 @@ import ItemList from './ItemList/ItemList'
 // import json
 import itemsJson from './items.json'
 
+// import CartWidget
+import WidgetCart from '../Cart/WidgetCart.js'
+
 
 
 const ItemListContainer = ({greeting}) => {
@@ -95,9 +98,7 @@ const ItemListContainer = ({greeting}) => {
         return(
         <>
 
-        <div className="main_title">
-            <h1>{greeting}</h1>
-        </div>
+        <WidgetCart />
 
         <h1>Cargando</h1>
 
@@ -106,6 +107,8 @@ const ItemListContainer = ({greeting}) => {
     }else{
         return(
             <>
+
+            <WidgetCart />
 
             <section id='itemListContainer'>
 

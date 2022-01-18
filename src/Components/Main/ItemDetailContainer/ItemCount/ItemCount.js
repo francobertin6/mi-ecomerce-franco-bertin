@@ -32,13 +32,12 @@ const ItemCount = ({name, stock, initial, onAdd, notification, id}) => {
     }
 
     const Handle_buy = () => {
-
-        onAdd(number);
-
+        
         if(Duplicated_item === true){
             notification(true)
         }else{
             notification(false)
+            onAdd(number);
         }
 
     }
