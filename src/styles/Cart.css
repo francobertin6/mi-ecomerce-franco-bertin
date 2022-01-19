@@ -1,4 +1,17 @@
 
+/* boton de seguir comprando */
+#keep_buying{
+
+    position: relative;
+    left: 5vh;
+    top: 5vh;
+
+    height: 2.5vh;
+    width: fit-content;
+}
+
+
+
 /* contenedor de carrito */
 
 #Cart_Container{
@@ -16,6 +29,7 @@
     background-color: rgb(216, 215, 215);
     box-shadow: 2px 2px 2px 2px;
 }
+
 
 #Cart_Container .titles{
     position: absolute;
@@ -132,4 +146,20 @@
 
     position: absolute;
     left: 96.2%;
+}
+
+
+/* mensaje de carrito */
+
+#Cart_Container .Cart_Message{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+    color: black;
+}
+
+#Cart_Container .Cart_Message:hover{
+    text-decoration-line: underline;
 }

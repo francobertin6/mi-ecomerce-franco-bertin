@@ -20,11 +20,12 @@ const Cart = () => {
         Delete_all();
     }
 
-    return(
+    if(Item.length !== 0){
 
+    return(
     <>
         <Link to="/">
-            <button>Seguir navegando</button>
+            <button id="keep_buying">Seguir navegando</button>
         </Link>
         
         <section id="Cart_Container">
@@ -45,9 +46,32 @@ const Cart = () => {
                 })}
                 
         </section>
-
     </>
-    )
+    ) 
+
+    }else{
+        return(
+            <>
+            <Link to="/">
+                <button id="keep_buying">Seguir navegando</button>
+            </Link>
+            
+            <section id="Cart_Container">
+    
+                <div className="titles">
+                    <h3>Carrito</h3>
+                    <h3>Guardados</h3>
+    
+                    <button onClick={Handle_deleteAll}>Borrar todos los productos</button>
+                </div>
+    
+                   <Link to="/"><h1 className="Cart_Message">Lo siento no hay items agregados en carrito</h1></Link>
+                    
+            </section>
+        </>
+        )
+    }
+    
 }
 
 export default Cart;
