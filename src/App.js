@@ -1,5 +1,5 @@
-// import react-router
-
+// import react-router/react
+import { useEffect } from "react";
 import { BrowserRouter} from "react-router-dom";
 
 // import NavBar
@@ -13,7 +13,9 @@ import Main from "./Components/Main/Main";
 // import contexto
 import Provider_component from "./context/My_context";
 
+
 const App = () => {
+
     return(
         <BrowserRouter>
             <NavBar />
@@ -26,3 +28,10 @@ const App = () => {
 }
 
 export default App;
+
+
+
+// setDoc para importar los productos a la base de datos
+
+
+
