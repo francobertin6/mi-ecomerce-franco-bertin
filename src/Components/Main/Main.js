@@ -14,6 +14,9 @@ import ItemDetailContainer from "./ItemDetailContainer/ItemDetailContainer.js"
 // import Cart
 import Cart from "./Cart/Cart";
 
+// import checkout
+import Checkout from "./Checkout/Checkout";
+
 
 
 
@@ -27,6 +30,7 @@ const Main = () => {
                 <Route path= "/:category" element={<ItemListContainer />}/>
                 <Route path= "/" element = {<ItemListContainer />}/>
                 <Route path= "/cart" element = {<Cart />}/>
+                <Route path= "/checkout" element = {<Checkout />}/>
             </Routes>
 
         </main>

@@ -13,7 +13,8 @@ const Provider_component = ({children}) => {
     const [Item, setItem] = useState([]);
     const [Duplicated_item, setDuplicated_item] = useState(false)
     const [Quantity, setQuantity] = useState([]);
-    const [Categories, setCategories] = useState(["Grafica y diseño", "Programacion", "Video y animacion", "Musica y audio", "Negocios", "Escritura"])
+    const [Categories] = useState(["Grafica y diseño", "Programacion", "Video y animacion", "Musica y audio", "Negocios", "Escritura"])
+    const [TotalAmount, setTotalAmount] = useState();
 
     const Ask_for_Item = (item) => {
 
@@ -32,6 +33,10 @@ const Provider_component = ({children}) => {
     const Ask_for_Quantity = (quantity) => {
 
         setQuantity([...Quantity, quantity]);
+    }
+
+    const Ask_for_TotalAmount = (Amount) => {
+        setTotalAmount(Amount);
     }
 
     const isInCart = (id) => {
@@ -65,7 +70,18 @@ const Provider_component = ({children}) => {
         setItem([])
     }
 
-    const ContextValue = {Item, Quantity, Categories, Duplicated_item, Ask_for_Item, Ask_for_Quantity, isInCart, Remove_Item, Delete_all}
+    const ContextValue = {Item,
+        Quantity, 
+        Categories, 
+        Duplicated_item, 
+        Ask_for_Item, 
+        Ask_for_Quantity, 
+        isInCart, 
+        Remove_Item, 
+        Delete_all,
+        TotalAmount,
+        Ask_for_TotalAmount,
+        }
 
    
     console.log(Quantity)

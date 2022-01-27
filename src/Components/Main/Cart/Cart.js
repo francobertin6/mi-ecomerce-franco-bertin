@@ -1,7 +1,7 @@
 
 // import react/contexto
 
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { My_Context } from "../../../context/My_context";
 
 // import react-router
@@ -14,12 +14,32 @@ const Cart = () => {
 
     const contexto = useContext(My_Context);
 
-    const { Item, Quantity, Delete_all } = contexto;
+    const { Item, Quantity, Delete_all, Ask_for_TotalAmount } = contexto;
+
+    const [TotalAmount, setTotalAmount] = useState();
+
+    
 
     const Handle_deleteAll = () => {
         Delete_all();
     }
 
+    const HandleCheckout = () => {
+        Ask_for_TotalAmount(TotalAmount);
+    }
+
+    useEffect( () => {
+        var Total = 0;
+
+        Item.forEach( (element, idx) => {
+            Total = (element.price * Quantity[idx]) + Total;
+        });
+
+        setTotalAmount(Total);
+
+    },[Item])
+
+   
     if(Item.length !== 0){
 
     return(
@@ -37,13 +57,22 @@ const Cart = () => {
                 <button onClick={Handle_deleteAll}>Borrar todos los productos</button>
             </div>
 
+            <div id="Items_container">
                 {Item.map( (element, idx) => {
                     let cantidad = Quantity[idx];
-                    console.log(element)
+            
                     return(
                         <Item_Cart item = {element} quantity = {cantidad} />
                     )
                 })}
+            </div>
+                
+            <div className="totalAmount">
+                <h1>Precio total : {TotalAmount} </h1>
+                <Link to="/checkout">
+                    <button onClick={HandleCheckout}>Seguir con la totalidad de la compra</button>
+                </Link> 
+            </div>
                 
         </section>
     </>

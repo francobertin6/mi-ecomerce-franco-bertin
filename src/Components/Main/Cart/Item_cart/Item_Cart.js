@@ -4,7 +4,7 @@ import { useContext } from "react";
 import { My_Context } from "../../../../context/My_context";
 
 
-const Item_Cart = ({item, quantity}) => {
+const Item_Cart = ({ item, quantity }) => {
 
     const contexto = useContext(My_Context);
 
@@ -22,6 +22,8 @@ const Item_Cart = ({item, quantity}) => {
 
 
     return(
+        <>
+
         <div key={id} className="Item_cart">
 
             <img src={pictureUrl} alt="img" />
@@ -32,7 +34,7 @@ const Item_Cart = ({item, quantity}) => {
             </div>
             
             <div className="price_quantity">
-                <p>Precio : {price}</p>
+                <p>Precio : {price * quantity}</p>
                 <p>Cantidad : {quantity}</p>
             </div>
 
@@ -40,6 +42,8 @@ const Item_Cart = ({item, quantity}) => {
             <button id="removeBtn" onClick={Handle_removebtn}>X</button>    
 
         </div>
+
+        </>
     )
 }
 

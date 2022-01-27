@@ -47,9 +47,8 @@ const ItemListContainer = ({greeting}) => {
             ItemsPromise.then((res) => {
                 
                 const docs = res.docs;
-                docs.map( doc => {
+                docs.forEach( doc => {
                     firstArray.push(doc.data());
-                    
                 })
                     /* filtra el array entre las categorias */ 
                 for (let index = 0; index < Categories.length; index++) {
@@ -72,15 +71,15 @@ const ItemListContainer = ({greeting}) => {
             ItemsPromise.then((res) => {
 
                 const docs = res.docs;
-                docs.map( doc => {
+                
+                docs.forEach( doc => {
                     firstArray.push(doc.data());
                 })
-
-
+               
                 /* se filtraran los productos por categoria */
                 let filter_elements = firstArray.filter( element => element.category === category)
                 /* se maparean esos productos retornandolos  */
-                let category_map = filter_elements.map( (element) => {
+                let category_map = filter_elements.forEach( (element) => {
                     if(element.category === category){
                         return element
                     }
