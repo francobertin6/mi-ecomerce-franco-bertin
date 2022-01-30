@@ -79,17 +79,18 @@ const ItemListContainer = ({greeting}) => {
                 /* se filtraran los productos por categoria */
                 let filter_elements = firstArray.filter( element => element.category === category)
                 /* se maparean esos productos retornandolos  */
-                let category_map = filter_elements.forEach( (element) => {
-                    if(element.category === category){
+                let category_map = filter_elements.map( element => {
                         return element
-                    }
                 })
+
+                console.log(category_map)
                 
                 /* ese map ira al nuevo array */
                 NewArray.push(category_map);
 
                 })
-
+                
+                
                 // console.log(NewArray);
                 /* ese array se pusheara en el estado products */
                 setProducts(NewArray);

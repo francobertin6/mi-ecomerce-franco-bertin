@@ -16,6 +16,9 @@ import "./styles/Main.css";
 // estilos de cart
 import "./styles/Cart.css"
 
+// estilos de checkout
+import "./styles/Checkout.css"
+
 // import estilos de toast
 import 'react-toastify/dist/ReactToastify.css';
 

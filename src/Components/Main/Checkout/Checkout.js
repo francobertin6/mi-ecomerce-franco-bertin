@@ -7,6 +7,9 @@ import { My_Context } from "../../../context/My_context";
 import db from '../../../Firebase/firebase.js';
 import { collection, addDoc } from "firebase/firestore";
 
+// import react-router
+import { Link } from "react-router-dom";
+
 const Checkout = () => {
 
     const contexto = useContext(My_Context);
@@ -19,16 +22,24 @@ const Checkout = () => {
 
     const Handle_buy = () => {
 
-         Item.forEach( element => {
+        console.log(Item)
+
+        let newArray = []
+
+        // foreach recorre el array items y coloca cada item en un nuevo array
+        Item.forEach( (element, idx) => {
             
-        setnewData([...newData, {
-            id : element.id,
-            titulo : element.title,
-            precio : element.price}
-        ]);
+            let obj = {
+                    id : element.id,
+                    title : element.title,
+                    price : element.price * Quantity[idx]
+                }
 
+            newArray.push(obj);    
+            
         })
-
+        // ese array se pushea al estado data que es un array con los items de la orden de compra
+        setnewData([newArray]);
         
         setTimeout(() => {
             let data = {
@@ -46,35 +57,44 @@ const Checkout = () => {
 
         addDoc(collection(db, "ordenes"), data);
 
-        }, 10000);
+        }, 5000);
         
     }
     
     return(
         <section id="Checkout">
 
+            <div className="items_details">
+
+                <h1>Detalles de compra</h1>
+
+                {Item.map( (element, idx) => {
+                    return(
+                        <div className="items">
+                            <img src={element.pictureUrl} alt="imagen_producto" />
+                            <h1>{element.title}</h1>
+                            <p>Precio : {element.price * Quantity[idx]}</p>
+
+                            <button>X</button>
+                        </div>
+                    )
+                })}
+            </div>
+
             <div className="User_data">
+
+                <h1>Ingresar datos de usuario</h1>
+
                 <input type="text" placeholder="Nombre" id="nombre" />
                 <input type="text" placeholder="Apellido" id="apellido" />
                 <input type="email" placeholder="Email" id="email" />
                 <input type="number" placeholder="telefono" id="telefono" />
             </div>
 
-            <div className="items_details">
-                {Item.map( (element, idx) => {
-                    return(
-                        <>
-                            <img src={element.pictureUrl} alt="imagen_producto" />
-                            <h1>{element.title}</h1>
-                            <p>{element.price * Quantity[idx]}</p>
-                        </>
-                    )
-                })}
-            </div>
-
             <div className="confirm_buy">
-                <p>{TotalAmount}</p>
+                <p>Precio total : {TotalAmount}</p>
                 <button onClick={Handle_buy}>Confirmar compra</button>
+                <Link to="/cart"><button className="return_cart">Volver a carrito</button></Link>
             </div>
 
         </section>
