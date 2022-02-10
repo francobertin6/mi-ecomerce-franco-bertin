@@ -9,8 +9,6 @@ const ItemList = ({items}) => {
 
     const [Category, setCategory] = useState("");
 
-    // console.log(items)
-
     const category_value = (value) => {
         setCategory(value)
     }

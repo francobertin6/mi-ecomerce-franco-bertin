@@ -13,6 +13,9 @@ import "./styles/NavBar.css";
 // estilos de Main
 import "./styles/Main.css";
 
+// estilos de itemdetail
+import "./styles/ItemDetail.css"
+
 // estilos de cart
 import "./styles/Cart.css"
 

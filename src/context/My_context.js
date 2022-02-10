@@ -19,8 +19,7 @@ const Provider_component = ({children}) => {
     const Ask_for_Item = (item) => {
 
         let find_element = Item.find( element => element.id === item.id);
-        console.log(find_element);
-
+        
         if(find_element === undefined){
             setDuplicated_item(false)
             setItem([...Item, item]);
@@ -54,8 +53,7 @@ const Provider_component = ({children}) => {
         let new_array_items = [];
         let new_array_quantity = [];
 
-        console.log(id)
-
+        
         let filter_element = Item.filter( element => element.id !== id);
         let filter_quantity = Quantity.filter ( element => element !== quantity);
 
@@ -82,10 +80,6 @@ const Provider_component = ({children}) => {
         TotalAmount,
         Ask_for_TotalAmount,
         }
-
-   
-    console.log(Quantity)
-    
 
     return(
         <Provider value={ContextValue}>

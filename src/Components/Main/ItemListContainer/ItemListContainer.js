@@ -83,8 +83,6 @@ const ItemListContainer = ({greeting}) => {
                         return element
                 })
 
-                console.log(category_map)
-                
                 /* ese map ira al nuevo array */
                 NewArray.push(category_map);
 
@@ -108,9 +106,7 @@ const ItemListContainer = ({greeting}) => {
         return(
         <>
 
-        <WidgetCart />
-
-        <h1>Cargando</h1>
+        <div class="loader"></div>
 
         </>
         )

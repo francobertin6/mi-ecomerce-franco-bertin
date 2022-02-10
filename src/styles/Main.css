@@ -1,7 +1,8 @@
 
 #conteiner_main{
     width: 100vw;
-    height: max-content;
+    min-height: 100vh;
+    max-height: max-content;
 
     position: relative;
     top: 0vh;
@@ -57,6 +58,31 @@
     color: white;
 }
 
+/* loading animacion */
+
+#conteiner_main .loader {
+    position: absolute;
+    left: 50%;
+    top: 30%;
+    
+    width: 48px;
+    height: 48px;
+    border: 5px solid rgb(219, 9, 9);
+    border-bottom-color: transparent;
+    border-radius: 50%;
+    display: inline-block;
+    box-sizing: border-box;
+    animation: rotation 1s linear infinite;
+    }
+
+    @keyframes rotation {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+    } 
 
 /* container itemlist */
 
@@ -244,92 +270,6 @@
     width: 20px;
 }
 
-/* componente ItemDetail */
-
-#ItemDetail{
-    width: 90vw;
-    height: max-content;
-    
-    position: relative;
-    top: 15vh;
-    left: 50%;
-
-    transform: translate(-50%);
-}
-
-/* title de ItemDetail */
-
-#ItemDetail .title{
-    width: 45vw;
-    height: max-content;
-
-    position: absolute;
-    top: 0;
-    left: 5vh;
-
-    font-size: 25px;
-}
-
-/* img de itemDetail */
-
-#ItemDetail img{
-    width: 45vw;
-    height: 45vh;
-
-    box-shadow: 2px 2px 3px 0;
-    position: absolute;
-    top: 10vh;
-    left: 5vh;
-    
-
-}
-
-/* descripcion de itemDetail */
-
-#ItemDetail .description{
-    width: 45vw;
-    height: max-content;
-
-    position: absolute;
-    top: 60vh;
-    left: 5vh;
-}
-
-
-#ItemDetail .description p{
-    width: 45vw;
-    height: max-content;
-
-}
-
-/* price de itemDetail */
-
-
-#ItemDetail .Options{
-    width: 25vw;
-    height: 45vh;
-    
-    border: 1px solid black;
-
-    position: relative;
-    left: 70%;
-    top: 10vh;
-}
-
-#ItemDetail .Options .price{
-    width: fit-content;
-    height: fit-content;
-
-    position: absolute;
-    left: 90%;
-    top: 10%;
-
-    transform: translate(-50%);
-
-    font-size: 25px;
-}
-
-
 
 /* componente ItemCount.js */
 
@@ -354,8 +294,6 @@
     width: 21px;
     height: 21px;
 }
-
-
 
 
 #Count_container h6{

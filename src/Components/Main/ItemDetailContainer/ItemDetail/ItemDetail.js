@@ -56,16 +56,21 @@ const ItemDetail = ({item, id}) => {
             </div>
 
             <div className="description">
+
+                <div className="description_title">
+                    <p>Descripcion</p>
+                    <div></div>
+                </div>
+
                 <p>{description}</p>
+
             </div> 
                  
             <img src={pictureUrl} alt="imagen" />
 
-            
-
             <div className="Options">
 
-                <p className="price">${price}</p>
+                <p className="price">$ {price}</p>
 
                 <ItemCount name="Agregar a carrito" stock={10} initial={0} onAdd={ onAdd } notification= { Notifications } id={id}
                 />

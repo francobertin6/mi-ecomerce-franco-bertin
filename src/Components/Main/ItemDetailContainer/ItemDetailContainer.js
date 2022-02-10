@@ -7,8 +7,6 @@ import { useParams } from "react-router-dom";
 // import ItemDetail
 import ItemDetail from "./ItemDetail/ItemDetail.js";
 
-// import itemJson
-import itemJson from "./items.json";
 
 // import firebase
 import db from "../../../Firebase/firebase.js";
@@ -29,12 +27,6 @@ const ItemDetailContainer = () => {
 
         const newArray = []
         
-            /*GetItem().then((res) => {
-                console.log(Number(id))
-                console.log(res.items)
-                setItemDetails(res.items[Number(id) - 1]);
-            })*/
-
            docs.then((res) => {
                const doc = res.docs;
 

@@ -10,9 +10,6 @@ const Item_Cart = ({ item, quantity }) => {
 
     const { Remove_Item } = contexto;
 
-    console.log(item)
-
-
     const {id, pictureUrl, user, title, price} = item;
 
 
@@ -38,7 +35,7 @@ const Item_Cart = ({ item, quantity }) => {
                 <p>Cantidad : {quantity}</p>
             </div>
 
-            <button id="buyBtn">Seguir con la compra</button>
+            {/* <button id="buyBtn">Seguir con la compra</button> */}
             <button id="removeBtn" onClick={Handle_removebtn}>X</button>    
 
         </div>

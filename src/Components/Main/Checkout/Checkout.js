@@ -14,34 +14,16 @@ const Checkout = () => {
 
     const contexto = useContext(My_Context);
 
-    const { TotalAmount, Item, Quantity} = contexto;
+    const { TotalAmount, Item, Quantity, Remove_Item, Delete_all } = contexto;
     
-    const [newData, setnewData] = useState([])
-
+    const [newData, setnewData] = useState([]);
+    const [checkData, setcheckData] = useState(false);
+    const [Message_input, setMessage_input] = useState();
    
+    const newArray = []
 
     const Handle_buy = () => {
 
-        console.log(Item)
-
-        let newArray = []
-
-        // foreach recorre el array items y coloca cada item en un nuevo array
-        Item.forEach( (element, idx) => {
-            
-            let obj = {
-                    id : element.id,
-                    title : element.title,
-                    price : element.price * Quantity[idx]
-                }
-
-            newArray.push(obj);    
-            
-        })
-        // ese array se pushea al estado data que es un array con los items de la orden de compra
-        setnewData([newArray]);
-        
-        setTimeout(() => {
             let data = {
             comprador : {
                 usuario : document.getElementById("nombre").value,
@@ -53,13 +35,64 @@ const Checkout = () => {
             monto_total : TotalAmount, 
             }
 
-        console.log(data);
+            addDoc(collection(db, "ordenes"), data);
 
-        addDoc(collection(db, "ordenes"), data);
+            Delete_all();
 
-        }, 5000);
-        
     }
+
+    const Eliminate_item = (e) => {
+        let parent_target = e.target.parentNode;
+        let quantity = e.target.id;
+
+        if(parent_target === document.getElementById("href_element")){
+            let check_id = parent_target.parentNode.id;
+            Remove_Item(Number(check_id), quantity)
+        }else{
+            let check_id = parent_target.id;
+            Remove_Item(Number(check_id), Quantity[quantity])
+        }
+
+    }
+
+    const check_inputs = (e) => {
+
+        // inputs
+        let name = document.getElementById("nombre").value;
+        let lastName = document.getElementById("apellido").value;
+        let email = document.getElementById("email").value;
+        let check_email = document.getElementById("check_email").value;
+        let tel = document.getElementById("telefono").value;
+
+        if(name !== "" && lastName !== "" && email !== "" && check_email !== "" && tel !== "" && email === check_email){
+
+            setMessage_input(true);
+            setcheckData(true);
+
+            // si los datos se completan se pushea el nuevo array al state newdata
+            Item.forEach( (element, idx) => {
+            
+                var obj = {
+                        id : element.id,
+                        title : element.title,
+                        price : element.price * Quantity[idx]
+                    }
+            
+                newArray.push(obj); 
+                setnewData(newArray);    
+            })
+
+        }else if(name !== "" && lastName !== "" && email !== "" && check_email !== "" && tel !== "" && email !== check_email){
+
+            setMessage_input(false);
+            setcheckData(false);
+        }
+        else{
+            
+            setcheckData(false);
+        }
+    }
+
     
     return(
         <section id="Checkout">
@@ -70,12 +103,12 @@ const Checkout = () => {
 
                 {Item.map( (element, idx) => {
                     return(
-                        <div className="items">
+                        <div className="items" id={element.id}>
                             <img src={element.pictureUrl} alt="imagen_producto" />
                             <h1>{element.title}</h1>
                             <p>Precio : {element.price * Quantity[idx]}</p>
 
-                            <button>X</button>
+                            {Item.length <= 1 ? <Link to= "/cart" id="href_element"><button id={idx} onClick={Eliminate_item}>X</button></Link> : <button id={idx} onClick={Eliminate_item}>X</button>}
                         </div>
                     )
                 })}
@@ -85,15 +118,18 @@ const Checkout = () => {
 
                 <h1>Ingresar datos de usuario</h1>
 
-                <input type="text" placeholder="Nombre" id="nombre" />
-                <input type="text" placeholder="Apellido" id="apellido" />
-                <input type="email" placeholder="Email" id="email" />
-                <input type="number" placeholder="telefono" id="telefono" />
+                <input type="text" placeholder="Nombre" id="nombre" onChange={check_inputs}/>
+                <input type="text" placeholder="Apellido" id="apellido" onChange={check_inputs}/>
+                <input type="email" placeholder="Email" id="email" onChange={check_inputs}/>
+                <input type="email" placeholder="confirmar email" id="check_email" onChange={check_inputs}/>
+                <input type="number" placeholder="telefono" id="telefono" onChange={check_inputs}/>
+
+                {Message_input ? null : <p>Email no coincide</p>}
             </div>
 
             <div className="confirm_buy">
                 <p>Precio total : {TotalAmount}</p>
-                <button onClick={Handle_buy}>Confirmar compra</button>
+                {checkData ? <Link to="/cart/orders"><button onClick={Handle_buy}>Confirmar compra</button></Link> : <button onClick={Handle_buy} disabled>Confirmar compra</button>}
                 <Link to="/cart"><button className="return_cart">Volver a carrito</button></Link>
             </div>
 

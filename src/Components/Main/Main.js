@@ -30,6 +30,7 @@ const Main = () => {
                 <Route path= "/:category" element={<ItemListContainer />}/>
                 <Route path= "/" element = {<ItemListContainer />}/>
                 <Route path= "/cart" element = {<Cart />}/>
+                <Route path= "/cart/:orders" element = {<Cart />}/>
                 <Route path= "/checkout" element = {<Checkout />}/>
             </Routes>
 
